@@ -2,6 +2,7 @@
 
 body, html {
     margin: 0 auto;
+    height: 100%;
 }
 
 #particle-container {

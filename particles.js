@@ -17,8 +17,8 @@ var init = () => {
             this.particles = [];
             this.canvas = document.getElementById(canvasID)
             this.context = this.canvas.getContext('2d');
-            this.canvas.width = window.innerWidth;
-            this.canvas.height = window.innerHeight;
+            this.canvas.width = window.innerWidth; //deprecated - use clientWidth
+            this.canvas.height = window.innerHeight; //deprecated - use clientHeight
             this.context.fillStyle = 'black';
             this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
         }
@@ -42,7 +42,7 @@ var init = () => {
                                         this.getRandomNum(0, this.canvas.height), 
                                         this.getRandomNum(-5, 5), 
                                         this.getRandomNum(-5, 5), 
-                                        25, 
+                                        8, 
                                         this.getRandomColor(.3));
                     this.particles.push(p);
                     p.id = this.particles.length;
@@ -70,7 +70,13 @@ var init = () => {
 
         start() {
             setInterval(() => {
+                if (this.isInterval) {
+                    return;
+                }
+                this.isInterval = true;
                 this.context.fillStyle = 'black';
+                this.canvas.width = window.innerWidth; //deprecated - use clientWidth
+                this.canvas.height = window.innerHeight; //deprecated - use clientHeight
                 this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
                 for (let particle of this.particles) {
                     particle.life++;
@@ -81,8 +87,8 @@ var init = () => {
                         this.drawParticle(particle)
                     }
                 }
-            }, 0)
-
+                this.isInterval = false;
+            }, 100)
         }
     }
 
