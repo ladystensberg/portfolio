@@ -1,0 +1,20 @@
+{
+    "resumes": {
+        "web-developer": {
+            "skills": [],
+            "education": [],
+            "experience": [],
+            "projects": []
+        },
+        "customer-service": {
+            "skills": [],
+            "education": [],
+            "experience": []
+        },
+        "technical-support": {
+            "skills": [],
+            "education": [],
+            "experience": []
+        }
+    }
+}
